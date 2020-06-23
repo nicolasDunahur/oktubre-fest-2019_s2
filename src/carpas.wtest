@@ -1,0 +1,90 @@
+import personas.*
+import marcas.*
+import carpas.*
+
+test "5) Es alamana y hay par" {
+	
+	const sneider = new Persona(pais = alemania)
+	const danke = new Persona(pais = alemania)
+	const guten = new Persona(pais = alemania)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = [danke,sneider])
+	
+}
+
+test ") Coinciden con la musica" {
+
+	graduacionReglamentaria.nivel(10)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(tieneBanda=true)
+	
+	assert.that( carpaAlemana.coicidenConLaMusica(guten))
+}
+
+	// no se porque no corre
+test ") Esta en la carpa" {
+
+	const danke = new Persona(pais = alemania)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = [danke,guten],tieneBanda=true)
+	
+	assert.that(carpaAlemana.estaEnLaCarpa(guten))
+}
+
+
+test ") Quiere entrar" {
+	
+	const sneider = new Persona(pais = alemania)
+	const danke = new Persona(pais = alemania)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = [danke,sneider], tieneBanda=true)
+	
+	assert.that(carpaAlemana.quiereEntrar(guten))
+}
+
+test "6) Dejar entrar y cantidad de personas en la carpa" {
+	
+	const sneider = new Persona(pais = alemania)
+	const danke = new Persona(pais = alemania)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = [danke,sneider], tieneBanda=true)
+	
+	assert.equals(2,carpaAlemana.cantPersonasEnLaCarpa())
+	assert.that(carpaAlemana.dejarEntrarA(guten))
+}
+	// no se porque no corre
+test ") Puede entrar" {
+	
+	const sneider = new Persona(pais = alemania)
+	const danke = new Persona(pais = alemania)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const guten = new Persona(pais = checa, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = [danke,sneider], tieneBanda=true)
+	
+	assert.that(carpaAlemana.puedeEntrar(guten))
+}
+	// no se porque no corre
+test ") Accion que una persona entre" {
+	
+	const sneider = new Persona(pais = alemania)
+	const danke = new Persona(pais = alemania)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const guten = new Persona(pais = checa, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = [danke,sneider], tieneBanda=true)
+	
+	carpaAlemana.entre(guten)
+	//assert.that(carpaAlemana.estaEnLaCarpa(guten))
+}
+
+test ") Servirle a una persona" {
+	
+	const sneider = new Persona(pais = alemania)
+	const danke = new Persona(pais = alemania)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const guten = new Persona(pais = checa, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const carpaAlemana = new Carpa(personasEnLaCarpa = guten, tieneBanda=true)
+	
+	carpaAlemana.servirleA(guten)
+	//assert.that(carpaAlemana.estaEnLaCarpa(guten))
+}

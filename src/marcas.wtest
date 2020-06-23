@@ -1,0 +1,30 @@
+import personas.*
+import carpas.*
+import marcas.*
+
+test "Graduacion cervezas" {
+
+	graduacionReglamentaria.nivel(10)
+	
+	const imeprial = new Negra(pais=belgica , lupulo = 5)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	
+	const JarraDeQuilmes = new Jarra(capacidad=100 , marca = quilmes)
+	const JarraDeImperial = new Jarra(capacidad=100 , marca = imeprial)	
+	assert.equals(12.5,quilmes.alcohol())
+
+}
+
+test "Contenido alcoholico de una jarra" {
+
+	graduacionReglamentaria.nivel(10)
+	
+	const imeprial = new Negra(pais=belgica , lupulo = 5)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	
+	const JarraDeQuilmes = new Jarra(capacidad=100 , marca = quilmes)
+	const JarraDeImperial = new Jarra(capacidad=100 , marca = imeprial)	
+
+	assert.equals(1250,JarraDeQuilmes.contenidoAlcoholico())
+	assert.equals(1000,JarraDeImperial.contenidoAlcoholico())
+}

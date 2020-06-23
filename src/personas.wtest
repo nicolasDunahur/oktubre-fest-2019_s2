@@ -1,0 +1,82 @@
+import personas.*
+import marcas.*
+import carpas.*
+
+test "2) Cuanto alcohol tomo" {
+
+	graduacionReglamentaria.nivel(10)
+	
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const imeprial = new Negra(pais=belgica , lupulo = 5)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const JarraDeQuilmes = new Jarra(capacidad=100 , marca = quilmes)
+	const JarraDeImperial = new Jarra(capacidad=100 , marca = imeprial)	
+	guten.recibirJarraYAgregar(JarraDeQuilmes)
+	guten.recibirJarraYAgregar(JarraDeImperial)
+	
+	assert.equals(2250,guten.cuantoAlcoholTomo())
+	
+}
+
+test "3) Esta ebria" {
+	
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	assert.that(not guten.estaEbria())
+}
+
+test ") Le gusta la musica" {
+	
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	assert.that(guten.leGustaLaMusica())
+}
+
+test "4) Le gusta la marca" {
+	
+	const guten = new Persona(pais = checa, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const quilmes = new Rubia(pais=belgica , lupulo = 5, alcohol =9)
+	assert.that(guten.leGustaLaMarca(quilmes))
+}
+
+test "Agregar jarras y cantidad comprada" {
+
+	graduacionReglamentaria.nivel(10)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const imeprial = new Negra(pais=belgica , lupulo = 5)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const JarraDeQuilmes = new Jarra(capacidad=100 , marca = quilmes)
+	const JarraDeImperial = new Jarra(capacidad=100 , marca = imeprial)	
+	guten.recibirJarraYAgregar(JarraDeQuilmes)
+	guten.recibirJarraYAgregar(JarraDeImperial)
+	
+	assert.equals(2,guten.cantJarrasCompradas())
+	
+}
+
+test ") Esebrio empedernido" {
+
+	graduacionReglamentaria.nivel(10)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const imeprial = new Negra(pais=belgica , lupulo = 5)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const JarraDeQuilmes = new Jarra(capacidad=1000 , marca = quilmes)
+	const JarraDeImperial = new Jarra(capacidad=1000 , marca = imeprial)	
+	guten.recibirJarraYAgregar(JarraDeQuilmes)
+	guten.recibirJarraYAgregar(JarraDeImperial)
+	
+	assert.that(guten.esEbrioEmpedernido())
+	
+}
+test ") Es patriota" {
+
+	graduacionReglamentaria.nivel(10)
+	const guten = new Persona(pais = alemania, peso=90, nivelDeAguante=45, leGustaLaMusica=true)
+	const imeprial = new Negra(pais=belgica , lupulo = 5)
+	const quilmes = new Roja(pais=belgica , lupulo = 5)
+	const JarraDeQuilmes = new Jarra(capacidad=1000 , marca = quilmes)
+	const JarraDeImperial = new Jarra(capacidad=1000 , marca = imeprial)	
+	guten.recibirJarraYAgregar(JarraDeQuilmes)
+	guten.recibirJarraYAgregar(JarraDeImperial)
+	
+	assert.that(not guten.esPatriota())
+	
+}
